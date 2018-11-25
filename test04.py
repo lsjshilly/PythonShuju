@@ -83,7 +83,7 @@ print(arr)  # [ 0  1  2  3  4 12 32 12  8  9]
 
 # 切片[:]给数组中的所有值赋值
 arr_slice[:] = 64
-arr2d = np.array([[1,2,3],[4,5,6],[7,8,9]])
+arr2d = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
 print(arr2d[2])
 # 以下两种方式等价
 print(arr2d[0][2])
@@ -107,7 +107,7 @@ print(arr3d[1, 0])
 
 # 切片索引
 # 一维数组同python列表
-arr2d = np.array([[1,2,3],[4,5,6],[7,8,9]])
+arr2d = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
 print("arr2d = ")
 print(arr2d)
 # arr2d[:2]选取前两行
@@ -164,3 +164,25 @@ arr = np.arange(32).reshape((8, 4))
 print(arr)
 print()
 print(arr[[1, 2, 3, 4], [0, 1, 1, 2]])
+print(arr[[1, 2, 3, 4]][[0, 1, 1, 2]])
+
+# 如下的截取方法
+print()
+print(arr[[1, 5, 7, 2]][:, [0, 3, 1, 2]])
+
+# 数组转置与轴对称
+arr = np.arange(15).reshape((3, 5))
+print(arr)
+
+print(arr.T)
+
+arr = np.random.randn(6, 3)
+print(np.dot(arr.T, arr))  # 3*3的矩阵
+
+# 对于高维数组，transpose 需要得到一个由轴编号组成的元组才能对这些轴进行转置
+arr = np.arange(16).reshape((2, 2, 4))
+print(arr)
+print(arr.transpose((1, 0, 2)))
+
+print(arr.swapaxes(1, 2))  # 将一对轴进行交换
+
